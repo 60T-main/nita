@@ -1,0 +1,1261 @@
+@font-face {
+  font-family: 'Dachi the Lynx';
+  src: url('Dachi the Lynx.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --pink:       #e8789a;
+  --pink-deep:  #c4527a;
+  --purple:     #9b6bc7;
+  --teal:       #6dccc8;
+  --peach:      #f0a870;
+  --gold:       #d4a020;
+  --lavender:   #b89ce8;
+  --bg-pink:    #f9c4d0;
+  --text-dark:  #4a2035;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Dachi the Lynx', 'Noto Serif Georgian', serif;
+  background: var(--bg-pink);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.separator {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.separator img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  background: url('bg.jpg') center top / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px 20px 0px;
+  overflow: hidden;
+  min-height: 110vh;
+
+}
+
+.sticker {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+}
+
+.sticker--flowers {
+  top: -3rem;
+  left: -3rem;
+  width: 50vw;
+}
+
+.sticker--disco {
+  top: -2rem;
+  right: -3rem;
+  width: 50vw;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 4rem;
+}
+
+.hero-collage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 64vw;
+  max-width: 370px;
+  margin-top: 3.2rem;
+}
+
+.piece--face {
+  width: 130%;
+  height: auto;
+  display: block;
+}
+
+.piece--numbers,
+.piece--name,
+.piece--bday-text {
+  display: block;
+}
+
+.piece--numbers img,
+.piece--name img,
+.piece--bday-text img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.piece--numbers {
+  width: 62%;
+  height: auto;
+  display: block;
+  margin-top: -50%;
+  position: relative;
+  z-index: 2;
+}
+
+.piece--name {
+  width: 95%;
+  height: auto;
+  display: block;
+  margin-top: -9%;
+}
+
+.piece--bday-text {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: -6%;
+}
+
+.sticker--kiss {
+  left: 7vw;
+  top: 18%;
+  width: 20vw;
+  max-width: 96px;
+}
+
+.sticker--kiss-2 {
+  right: 2vw;
+  top: 36%;
+  width: 17vw;
+  max-width: 96px;
+}
+
+.sticker--cocktail {
+  right: 2vw;
+  bottom: 10%;
+  width: 25vw;
+  max-width: 100px;
+}
+
+.sticker--cocktail-2 {
+  left: 2vw;
+  bottom: 10%;
+  width: 25vw;
+  max-width: 100px;
+}
+.sticker--cocktail-3 {
+  left: 2vw;
+  top: 36%;
+  width: 12vw;
+  max-width: 100px;
+}
+.sticker--cocktail-4 {
+  right: 2vw;
+  top: 20%;
+  width: 13vw;
+  max-width: 100px;
+}
+
+/* ─────────────────────────────────────────
+   ENTRANCE ANIMATION — STOPMOTION CUTOUT
+───────────────────────────────────────── */
+
+@keyframes fly-in-left {
+  0%   { transform: translateX(-92vw) rotate(-14deg); animation-timing-function: steps(1, end); }
+  14%  { transform: translateX(-72vw) rotate(-20deg); animation-timing-function: steps(1, end); }
+  28%  { transform: translateX(-52vw) rotate(-9deg);  animation-timing-function: steps(1, end); }
+  43%  { transform: translateX(-36vw) rotate(-17deg); animation-timing-function: steps(1, end); }
+  57%  { transform: translateX(-22vw) rotate(-7deg);  animation-timing-function: steps(1, end); }
+  71%  { transform: translateX(-11vw) rotate(-15deg); animation-timing-function: steps(1, end); }
+  86%  { transform: translateX(-3vw)  rotate(-4deg);  animation-timing-function: steps(1, end); }
+  100% { transform: translateX(0)     rotate(0deg); }
+}
+
+@keyframes fly-in-right {
+  0%   { transform: translateX(92vw)  rotate(16deg);  animation-timing-function: steps(1, end); }
+  14%  { transform: translateX(74vw)  rotate(10deg);  animation-timing-function: steps(1, end); }
+  28%  { transform: translateX(54vw)  rotate(19deg);  animation-timing-function: steps(1, end); }
+  43%  { transform: translateX(37vw)  rotate(8deg);   animation-timing-function: steps(1, end); }
+  57%  { transform: translateX(23vw)  rotate(14deg);  animation-timing-function: steps(1, end); }
+  71%  { transform: translateX(12vw)  rotate(6deg);   animation-timing-function: steps(1, end); }
+  86%  { transform: translateX(4vw)   rotate(11deg);  animation-timing-function: steps(1, end); }
+  100% { transform: translateX(0)     rotate(0deg); }
+}
+
+/* cocktail-specific: enters from right, rests at +12deg */
+@keyframes fly-in-right-cocktail {
+  0%   { transform: translateX(92vw)  rotate(22deg);  animation-timing-function: steps(1, end); }
+  14%  { transform: translateX(74vw)  rotate(14deg);  animation-timing-function: steps(1, end); }
+  28%  { transform: translateX(54vw)  rotate(24deg);  animation-timing-function: steps(1, end); }
+  43%  { transform: translateX(37vw)  rotate(16deg);  animation-timing-function: steps(1, end); }
+  57%  { transform: translateX(23vw)  rotate(20deg);  animation-timing-function: steps(1, end); }
+  71%  { transform: translateX(12vw)  rotate(10deg);  animation-timing-function: steps(1, end); }
+  86%  { transform: translateX(4vw)   rotate(14deg);  animation-timing-function: steps(1, end); }
+  100% { transform: translateX(0)     rotate(14deg); }
+}
+
+/* cocktail desktop variant: enters from left, rests at +12deg */
+@keyframes fly-in-left-cocktail {
+  0%   { transform: translateX(-92vw) rotate(-10deg); animation-timing-function: steps(1, end); }
+  14%  { transform: translateX(-72vw) rotate(-18deg); animation-timing-function: steps(1, end); }
+  28%  { transform: translateX(-52vw) rotate(-6deg);  animation-timing-function: steps(1, end); }
+  43%  { transform: translateX(-36vw) rotate(-20deg); animation-timing-function: steps(1, end); }
+  57%  { transform: translateX(-22vw) rotate(-8deg);  animation-timing-function: steps(1, end); }
+  71%  { transform: translateX(-11vw) rotate(-16deg); animation-timing-function: steps(1, end); }
+  86%  { transform: translateX(-3vw)  rotate(-4deg);  animation-timing-function: steps(1, end); }
+  100% { transform: translateX(0)     rotate(12deg); }
+}
+
+/* cocktail-2: enters from left, rests at -14deg (mirror of cocktail-1) */
+@keyframes fly-in-left-cocktail-2 {
+  0%   { transform: translateX(-92vw) rotate(-22deg); animation-timing-function: steps(1, end); }
+  14%  { transform: translateX(-72vw) rotate(-14deg); animation-timing-function: steps(1, end); }
+  28%  { transform: translateX(-52vw) rotate(-24deg); animation-timing-function: steps(1, end); }
+  43%  { transform: translateX(-36vw) rotate(-16deg); animation-timing-function: steps(1, end); }
+  57%  { transform: translateX(-22vw) rotate(-20deg); animation-timing-function: steps(1, end); }
+  71%  { transform: translateX(-11vw) rotate(-10deg); animation-timing-function: steps(1, end); }
+  86%  { transform: translateX(-3vw)  rotate(-14deg); animation-timing-function: steps(1, end); }
+  100% { transform: translateX(0)     rotate(-14deg); }
+}
+
+/* cocktail-2 desktop variant: enters from right, rests at -14deg */
+@keyframes fly-in-right-cocktail-2 {
+  0%   { transform: translateX(92vw)  rotate(10deg);  animation-timing-function: steps(1, end); }
+  14%  { transform: translateX(74vw)  rotate(18deg);  animation-timing-function: steps(1, end); }
+  28%  { transform: translateX(54vw)  rotate(6deg);   animation-timing-function: steps(1, end); }
+  43%  { transform: translateX(37vw)  rotate(20deg);  animation-timing-function: steps(1, end); }
+  57%  { transform: translateX(23vw)  rotate(8deg);   animation-timing-function: steps(1, end); }
+  71%  { transform: translateX(12vw)  rotate(16deg);  animation-timing-function: steps(1, end); }
+  86%  { transform: translateX(4vw)   rotate(4deg);   animation-timing-function: steps(1, end); }
+  100% { transform: translateX(0)     rotate(-14deg); }
+}
+
+/* kiss-1: enters from left, rests at -12deg */
+@keyframes fly-in-left-kiss {
+  0%   { transform: translateX(-92vw) rotate(-18deg); animation-timing-function: steps(1, end); }
+  14%  { transform: translateX(-72vw) rotate(-10deg); animation-timing-function: steps(1, end); }
+  28%  { transform: translateX(-52vw) rotate(-20deg); animation-timing-function: steps(1, end); }
+  43%  { transform: translateX(-36vw) rotate(-8deg);  animation-timing-function: steps(1, end); }
+  57%  { transform: translateX(-22vw) rotate(-16deg); animation-timing-function: steps(1, end); }
+  71%  { transform: translateX(-11vw) rotate(-6deg);  animation-timing-function: steps(1, end); }
+  86%  { transform: translateX(-3vw)  rotate(-14deg); animation-timing-function: steps(1, end); }
+  100% { transform: translateX(0)     rotate(-12deg); }
+}
+
+/* kiss-2: enters from right, flipped, rests at scaleX(-1) rotate(12deg) */
+@keyframes fly-in-right-kiss-2 {
+  0%   { transform: translateX(92vw)  scaleX(-1) rotate(18deg);  animation-timing-function: steps(1, end); }
+  14%  { transform: translateX(74vw)  scaleX(-1) rotate(10deg);  animation-timing-function: steps(1, end); }
+  28%  { transform: translateX(54vw)  scaleX(-1) rotate(20deg);  animation-timing-function: steps(1, end); }
+  43%  { transform: translateX(37vw)  scaleX(-1) rotate(8deg);   animation-timing-function: steps(1, end); }
+  57%  { transform: translateX(23vw)  scaleX(-1) rotate(16deg);  animation-timing-function: steps(1, end); }
+  71%  { transform: translateX(12vw)  scaleX(-1) rotate(6deg);   animation-timing-function: steps(1, end); }
+  86%  { transform: translateX(4vw)   scaleX(-1) rotate(14deg);  animation-timing-function: steps(1, end); }
+  100% { transform: translateX(0)     scaleX(-1) rotate(12deg); }
+}
+
+/* kiss-2 desktop (swapped side): enters from left, flipped, rests at scaleX(-1) rotate(12deg) */
+@keyframes fly-in-left-kiss-2 {
+  0%   { transform: translateX(-92vw) scaleX(-1) rotate(-18deg); animation-timing-function: steps(1, end); }
+  14%  { transform: translateX(-72vw) scaleX(-1) rotate(-10deg); animation-timing-function: steps(1, end); }
+  28%  { transform: translateX(-52vw) scaleX(-1) rotate(-20deg); animation-timing-function: steps(1, end); }
+  43%  { transform: translateX(-36vw) scaleX(-1) rotate(-8deg);  animation-timing-function: steps(1, end); }
+  57%  { transform: translateX(-22vw) scaleX(-1) rotate(-16deg); animation-timing-function: steps(1, end); }
+  71%  { transform: translateX(-11vw) scaleX(-1) rotate(-6deg);  animation-timing-function: steps(1, end); }
+  86%  { transform: translateX(-3vw)  scaleX(-1) rotate(-14deg); animation-timing-function: steps(1, end); }
+  100% { transform: translateX(0)     scaleX(-1) rotate(12deg); }
+}
+
+/* ─────────────────────────────────────────
+   IDLE ANIMATIONS (loop after entry)
+───────────────────────────────────────── */
+
+@keyframes idle-neutral-a {
+  0%   { transform: rotate(0deg);   }
+  33%  { transform: rotate(-4.5deg);}
+  67%  { transform: rotate(3deg);   }
+  100% { transform: rotate(0deg);   }
+}
+
+@keyframes idle-neutral-b {
+  0%   { transform: rotate(0deg);  }
+  33%  { transform: rotate(3.5deg);}
+  67%  { transform: rotate(-3.5deg);}
+  100% { transform: rotate(0deg);  }
+}
+
+@keyframes idle-neutral-c {
+  0%   { transform: rotate(0deg);    }
+  25%  { transform: rotate(-3deg);   }
+  50%  { transform: rotate(4deg);    }
+  75%  { transform: rotate(-2deg);   }
+  100% { transform: rotate(0deg);    }
+}
+
+@keyframes idle-kiss-1 {
+  0%   { transform: rotate(-12deg);    }
+  33%  { transform: rotate(-16deg);    }
+  67%  { transform: rotate(-8deg);     }
+  100% { transform: rotate(-12deg);    }
+}
+
+@keyframes idle-kiss-2 {
+  0%   { transform: scaleX(-1) rotate(12deg);   }
+  33%  { transform: scaleX(-1) rotate(16deg);   }
+  67%  { transform: scaleX(-1) rotate(8deg);    }
+  100% { transform: scaleX(-1) rotate(12deg);   }
+}
+
+@keyframes idle-cocktail-1 {
+  0%   { transform: rotate(14deg);  }
+  33%  { transform: rotate(10deg);  }
+  67%  { transform: rotate(18deg);  }
+  100% { transform: rotate(14deg);  }
+}
+
+@keyframes idle-cocktail-2 {
+  0%   { transform: rotate(-14deg);  }
+  33%  { transform: rotate(-10deg);  }
+  67%  { transform: rotate(-18deg);  }
+  100% { transform: rotate(-14deg);  }
+}
+
+@keyframes idle-piece-face {
+  0%   { transform: rotate(0deg);    }
+  33%  { transform: rotate(-2.5deg); }
+  67%  { transform: rotate(2deg);    }
+  100% { transform: rotate(0deg);    }
+}
+
+@keyframes idle-piece-a {
+  0%   { transform: rotate(0deg);   }
+  50%  { transform: rotate(-3deg);  }
+  100% { transform: rotate(0deg);   }
+}
+
+@keyframes idle-piece-b {
+  0%   { transform: rotate(0deg);  }
+  50%  { transform: rotate(3deg);  }
+  100% { transform: rotate(0deg);  }
+}
+
+@keyframes idle-piece-c {
+  0%   { transform: rotate(0deg);    }
+  33%  { transform: rotate(2deg);    }
+  67%  { transform: rotate(-3deg);   }
+  100% { transform: rotate(0deg);    }
+}
+
+.sticker--flowers.idle    { animation: idle-neutral-b  2.6s steps(3, end) infinite;       }
+.sticker--disco.idle      { animation: idle-neutral-a  2.2s steps(3, end) infinite -0.8s;  }
+.sticker--kiss.idle       { animation: idle-kiss-1     3s   steps(3, end) infinite -1.2s;  }
+.sticker--kiss-2.idle     { animation: idle-kiss-2     2.8s steps(3, end) infinite -0.4s;  }
+.sticker--cocktail.idle   { animation: idle-cocktail-1 2.4s steps(3, end) infinite -1s;    }
+.sticker--cocktail-2.idle { animation: idle-cocktail-2 3.2s steps(3, end) infinite -0.6s;  }
+.sticker--cocktail-3.idle { animation: idle-cocktail-2 3.2s steps(3, end) infinite -0.6s;  }
+.sticker--cocktail-4.idle { animation: idle-cocktail-1 2.4s steps(3, end) infinite -1.5s;  }
+.piece--face.idle         { animation: idle-piece-face 3s   steps(4, end) infinite -0.5s;  }
+.piece--numbers.idle      { animation: idle-piece-a    3.4s steps(4, end) infinite -1.4s;  }
+.piece--name.idle         { animation: idle-piece-b    2.8s steps(4, end) infinite -0.7s;  }
+.piece--bday-text.idle    { animation: idle-piece-c    3.8s steps(4, end) infinite -1.8s;  }
+
+/* Stickers — choppy */
+.sticker--flowers {
+  animation: fly-in-left 1.05s linear both;
+  animation-delay: 0s;
+}
+
+.sticker--disco {
+  animation: fly-in-right 1.05s linear both;
+  animation-delay: 0.18s;
+}
+
+.sticker--kiss {
+  animation: fly-in-left-kiss 0.88s linear both;
+  animation-delay: 0.82s;
+}
+
+.sticker--kiss-2 {
+  animation: fly-in-right-kiss-2 0.88s linear both;
+  animation-delay: 0.96s;
+}
+
+.sticker--cocktail {
+  animation: fly-in-right-cocktail 0.96s linear both;
+  animation-delay: 0.54s;
+}
+
+.sticker--cocktail-2 {
+  animation: fly-in-left-cocktail-2 0.96s linear both;
+  animation-delay: 0.7s;
+}
+.sticker--cocktail-4 {
+  animation: fly-in-right-cocktail 0.96s linear both;
+  animation-delay: 0.46s;
+}
+.sticker--cocktail-3 {
+  animation: fly-in-left-cocktail-2 0.96s linear both;
+  animation-delay: 0.7s;
+}
+
+/* Core collage pieces — staggered */
+.piece--face {
+  animation: fly-in-right 1.14s linear both;
+  animation-delay: 0.42s;
+}
+
+.piece--numbers {
+  animation: fly-in-left 0.96s linear both;
+  animation-delay: 1.12s;
+}
+
+.piece--name {
+  animation: fly-in-right 0.96s linear both;
+  animation-delay: 1.36s;
+}
+
+.piece--bday-text {
+  animation: fly-in-left 0.96s linear both;
+  animation-delay: 1.6s;
+}
+
+/* ─────────────────────────────────────────
+   DETAILS
+───────────────────────────────────────── */
+
+.details {
+  position: relative;
+  background: url('bg.jpg') center bottom / cover no-repeat;
+  padding: 4rem 16px 52px;
+}
+
+.details-card {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 62px 0 8px;
+}
+
+/* ─────────────────────────────────────────
+   INFO BLOCK
+───────────────────────────────────────── */
+
+.info-date {
+  font-size: 0.76rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b08090;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.info-time {
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  text-align: center;
+  line-height: 1;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  letter-spacing: 0.04em;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.time-char {
+  display: inline-block;
+}
+
+@keyframes idle-time-a {
+  0%   { transform: rotate(0deg) translateY(0);     }
+  33%  { transform: rotate(-3deg) translateY(-2px);  }
+  67%  { transform: rotate(2.5deg) translateY(1px);  }
+  100% { transform: rotate(0deg) translateY(0);      }
+}
+
+@keyframes idle-time-b {
+  0%   { transform: rotate(0deg) translateY(0);     }
+  33%  { transform: rotate(2.5deg) translateY(1px);  }
+  67%  { transform: rotate(-2deg) translateY(-2px);  }
+  100% { transform: rotate(0deg) translateY(0);      }
+}
+
+@keyframes idle-time-c {
+  0%   { transform: rotate(0deg) translateY(0);      }
+  25%  { transform: rotate(-2deg) translateY(-1px);  }
+  50%  { transform: rotate(3deg) translateY(2px);    }
+  75%  { transform: rotate(-1.5deg) translateY(-1px);}
+  100% { transform: rotate(0deg) translateY(0);      }
+}
+
+.time-char:nth-child(1).idle { animation: idle-time-a 2.6s steps(3, end) infinite;       }
+.time-char:nth-child(2).idle { animation: idle-time-b 2.2s steps(3, end) infinite -0.6s; }
+.time-char:nth-child(3).idle { animation: idle-time-c 2.8s steps(3, end) infinite -1.2s; }
+.time-char:nth-child(4).idle { animation: idle-time-a 2.4s steps(3, end) infinite -0.3s; }
+.time-char:nth-child(5).idle { animation: idle-time-b 3s   steps(3, end) infinite -0.9s; }
+
+.info-venue {
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 12px;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.pin-emoji {
+  display: inline-block;
+  animation: idle-pin 1.8s steps(3, end) infinite;
+}
+
+@keyframes idle-pin {
+  0%   { transform: translateY(0) rotate(0deg);     }
+  33%  { transform: translateY(-3px) rotate(-6deg);  }
+  67%  { transform: translateY(0) rotate(4deg);      }
+  100% { transform: translateY(0) rotate(0deg);      }
+}
+
+.info-venue:hover {
+  color: var(--pink-deep);
+}
+
+.info-message {
+  font-size: 0.76rem;
+  font-weight: 400;
+  color: #b08090;
+  text-align: center;
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+
+.info-dresscode {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.info-dresscode span {
+  font-weight: 400;
+  color: var(--pink-deep);
+  border-bottom: 1px solid var(--pink);
+  padding-bottom: 1px;
+}
+
+/* ─────────────────────────────────────────
+   DIVIDER
+───────────────────────────────────────── */
+
+.divider {
+  height: 1px;
+  background: rgba(232, 120, 154, 0.22);
+  margin: 28px 0;
+}
+
+/* ─────────────────────────────────────────
+   SCHEDULE
+───────────────────────────────────────── */
+
+.schedule-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #b08090;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 11px 4px;
+  border-bottom: 1px solid rgba(232, 120, 154, 0.13);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.schedule-item:hover {
+  background: rgba(232, 120, 154, 0.07);
+}
+
+@keyframes item-pop {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(0.93) rotate(-1.5deg); }
+  60%  { transform: scale(1.06) rotate(1deg); }
+  80%  { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+.schedule-item.popping {
+  animation: item-pop 0.38s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-tag {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  padding: 4px 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 0.08em;
+}
+
+.schedule-item:nth-child(1) .schedule-tag { color: var(--pink-deep); border-color: var(--pink); }
+.schedule-item:nth-child(2) .schedule-tag { color: #3aaba8; border-color: var(--teal); }
+.schedule-item:nth-child(3) .schedule-tag { color: var(--purple); border-color: var(--purple); }
+.schedule-item:nth-child(4) .schedule-tag { color: #c47830; border-color: var(--peach); }
+
+.schedule-event {
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+
+.footer {
+  background: var(--pink-deep);
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 400;
+  padding: 16px 20px;
+  letter-spacing: 0.04em;
+}
+
+/* ─────────────────────────────────────────
+   SCHEDULE POPUP
+───────────────────────────────────────── */
+
+.sched-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(74, 32, 53, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+
+.sched-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@keyframes popup-in {
+  0%   { transform: scale(0.7) rotate(-4deg); opacity: 0; }
+  55%  { transform: scale(1.06) rotate(1.5deg); opacity: 1; }
+  75%  { transform: scale(0.97) rotate(-0.5deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes popup-out {
+  0%   { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.75) rotate(3deg); opacity: 0; }
+}
+
+.sched-popup {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 28px 28px;
+  max-width: 300px;
+  width: calc(100% - 48px);
+  text-align: center;
+  box-shadow: 0 12px 48px rgba(196, 82, 122, 0.22), 0 2px 8px rgba(0,0,0,0.08);
+  animation: popup-in 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.sched-overlay:not(.active) .sched-popup {
+  animation: popup-out 0.22s ease forwards;
+}
+
+.sched-popup__emoji {
+  font-size: 2.6rem;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.sched-popup__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
+.sched-popup__info {
+  font-size: 0.84rem;
+  font-weight: 400;
+  color: #b08090;
+  line-height: 1.75;
+}
+
+.sched-popup__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #c8a0b0;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 50%;
+  transition: color 0.15s, background 0.15s;
+}
+
+.sched-popup__close:hover {
+  color: var(--pink-deep);
+  background: rgba(232, 120, 154, 0.1);
+}
+
+/* coloured top strip per item */
+.sched-popup[data-color="pink"]   { border-top: 4px solid var(--pink); }
+.sched-popup[data-color="teal"]   { border-top: 4px solid var(--teal); }
+.sched-popup[data-color="purple"] { border-top: 4px solid var(--purple); }
+.sched-popup[data-color="peach"]   { border-top: 4px solid var(--peach); }
+.sched-popup[data-color="lavender"] { border-top: 4px solid var(--lavender); }
+
+#dresscodeSpan {
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+#dresscodeSpan:hover {
+  color: var(--purple);
+  border-bottom-color: var(--purple);
+}
+
+
+/* ═══════════════════════════════════════
+   481px
+═══════════════════════════════════════ */
+
+@media (min-width: 481px) {
+
+  .details{
+    padding-top: 8rem;
+  }
+  .hero-collage {
+    width: 72vw;
+    max-width: 400px;
+  }
+  
+  .piece--numbers {
+    width: 28vw;
+  }
+  .piece--name {
+    margin-top: -6%;
+    max-width: 38vw;
+  }
+  .piece--bday-text {
+    max-width: 45vw;
+  }
+
+  .sticker--kiss {
+    width: 14vw;
+    max-width: 100px;
+  }
+
+  .sticker--kiss-2 {
+    width: 14vw;
+    max-width: 100px;
+  }
+
+  .sticker--flowers {
+    width: 42vw;
+    max-width: 260px;
+  }
+
+  .sticker--disco {
+    width: 36vw;
+    max-width: 240px;
+  }
+
+  .piece--face{
+    max-width: 18rem;
+  }
+}
+
+/* ═══════════════════════════════════════
+   769px  — desktop layout
+═══════════════════════════════════════ */
+
+@media (min-width: 769px) {
+  /* Flip background horizontally */
+  .hero {
+    background: none;
+  }
+
+        .piece--numbers {
+          width: 22vw;
+        }
+    
+        .piece--name {
+          margin-top: -6%;
+          max-width: 30vw;
+        }
+    
+        .piece--bday-text {
+          max-width: 40vw;
+        }
+
+        .piece--face {
+          max-width: 22rem;
+        }
+    
+
+  .details {
+    padding-top: 12rem;
+  }
+
+    .details-card{
+      padding-top: 8rem;
+    }
+
+  .separator{
+    top:6rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('bg-desktop.jpg') center top / cover no-repeat;
+    transform: scaleX(-1);
+    z-index: 0;
+  }
+
+  /* Stickers swap sides */
+  .sticker--flowers {
+    left: auto;
+    right: -24px;
+    width: 28vw;
+    max-width: 340px;
+  }
+
+  
+
+  .sticker--disco {
+    right: auto;
+    left: -24px;
+    width: 26vw;
+    max-width: 320px;
+  }
+
+  .hero-inner {
+    padding-top: 40px;
+  }
+
+  .hero-collage {
+    width: 46vw;
+    max-width: 500px;
+  }
+
+  .sticker--kiss {
+    left: 3vw;
+    top: 20%;
+    width: 13vw;
+    max-width: 126px;
+  }
+
+  .sticker--kiss-2 {
+    right: 3vw;
+    left: auto;
+    top: 44%;
+    width: 13vw;
+    max-width: 126px;
+    animation-name: fly-in-right-kiss-2;
+  }
+
+  .sticker--cocktail {
+    right: auto;
+    left: -1vw;
+
+    width: 13vw;
+    max-width: 126px;
+    animation-name: fly-in-left-cocktail;
+  }
+
+  .sticker--cocktail-2 {
+    left: auto;
+    right: -1vw;
+
+    width: 13vw;
+    max-width: 126px;
+    animation-name: fly-in-right-cocktail-2;
+  }
+  .sticker--cocktail-4 {
+    left: auto;
+    right: -1vw;
+
+    width: 13vw;
+    max-width: 126px;
+    animation-name: fly-in-right-cocktail;
+  }
+  .sticker--cocktail-3 {
+    left: auto;
+    right: -1vw;
+
+    width: 13vw;
+    max-width: 126px;
+    animation-name: fly-in-right-cocktail-2;
+  }
+
+  /* On desktop, stickers are swapped — reverse their entry direction */
+  .sticker--flowers {
+    animation-name: fly-in-right;
+  }
+
+  .sticker--disco {
+    animation-name: fly-in-left;
+  }
+
+  /* Details */
+  .details-card {
+    max-width: 580px;
+  }
+
+  .info-time {
+    font-size: 3.6rem;
+  }
+
+  .schedule-title {
+    font-size: 0.76rem;
+  }
+
+  .schedule-event {
+    font-size: 0.92rem;
+  }
+}
+
+/* ═══════════════════════════════════════
+   1025px
+═══════════════════════════════════════ */
+
+@media (min-width: 1025px) {
+
+  .separator{
+    top: 7rem;
+  }
+
+          .piece--numbers {
+              width: 20vw;
+            }
+          
+            .piece--name {
+              margin-top: -6%;
+              max-width: 28vw;
+            }
+          
+            .piece--bday-text {
+              max-width: 38vw;
+            }
+          
+            .piece--face {
+              max-width: 20rem;
+            }
+
+  .sticker--flowers {
+    width: 22vw;
+    max-width: 380px;
+    top: -16px;
+    right: -28px;
+  }
+
+  .sticker--disco {
+    width: 20vw;
+    max-width: 360px;
+    top: -16px;
+    left: -28px;
+  }
+
+  .sticker--cocktail {
+    left: -12px;
+
+    width: 11vw;
+    max-width: 148px;
+  }
+
+  .sticker--cocktail-2 {
+    right: -12px;
+    left: auto;
+
+    width: 11vw;
+    max-width: 148px;
+  }
+
+  .sticker--kiss {
+    left: 4vw;
+    top: 30%;
+    width: 11vw;
+    max-width: 148px;
+  }
+
+  .sticker--kiss-2 {
+    right: 4vw;
+    left: auto;
+    top: 52%;
+    width: 11vw;
+    max-width: 148px;
+  }
+
+  .hero-inner {
+    padding-top: 1rempx;
+  }
+
+  .hero-collage {
+    width: 40vw;
+    max-width: 620px;
+  }
+
+  .details-card {
+    max-width: 680px;
+  }
+
+  .info-date {
+    font-size: 0.82rem;
+  }
+
+  .info-time {
+    font-size: 4rem;
+  }
+
+  .info-venue {
+    font-size: 0.96rem;
+  }
+
+  .schedule-title {
+    font-size: 0.78rem;
+  }
+
+  .schedule-event {
+    font-size: 0.96rem;
+  }
+}
+
+
+
+
+
+@media (min-width: 1150px) {
+
+  .separator {
+    top: 7rem;
+  }
+
+  .piece--numbers {
+    width: 16vw;
+    margin-top: -24%;
+  }
+
+  .piece--name {
+    margin-top: -6%;
+    max-width: 24vw;
+  }
+
+  .piece--bday-text {
+    max-width: 34vw;
+  }
+
+  .piece--face {
+    max-width: 18rem;
+  }
+
+}
+
+
+@media (min-width: 1250px) {
+
+  .hero{
+    max-height: 120vh;
+  }
+
+  .separator {
+    top: 8rem;
+  }
+
+  .details-card{
+    padding-top: 14rem;
+  }
+
+  .piece--numbers {
+    width: 16vw;
+    margin-top: -24%;
+  }
+
+  .piece--name {
+    margin-top: -6%;
+    max-width: 20vw;
+  }
+
+  .piece--bday-text {
+    max-width: 30vw;
+  }
+
+  .piece--face {
+    max-width: 18rem;
+  }
+
+@media (min-width: 1400px) {
+
+  .hero{
+    max-height: 140vh;
+  }
+
+  .separator {
+    top: 9rem;
+  }
+
+  .details-card{
+    padding-top: 16rem;
+  }
+
+  .piece--numbers {
+    width: 16vw;
+    margin-top: -24%;
+  }
+
+  .piece--name {
+    margin-top: -6%;
+    max-width: 20vw;
+  }
+
+  .piece--bday-text {
+    max-width: 30vw;
+  }
+
+  .piece--face {
+    max-width: 18rem;
+  }
+}
+@media (min-width: 1600px) {
+
+  .hero{
+    min-height: 120vh;
+  }
+
+  .separator {
+    top: 10rem;
+  }
+
+  .details-card{
+    padding-top: 20rem;
+  }
+
+  .piece--numbers {
+    width: 16vw;
+    margin-top: -24%;
+  }
+
+  .piece--name {
+    margin-top: -6%;
+    max-width: 18vw;
+  }
+
+  .piece--bday-text {
+    max-width: 28vw;
+  }
+
+  .piece--face {
+    max-width: 20rem;
+  }
+}
+@media (min-width: 1700px) {
+
+  .hero{
+    min-height: 120vh;
+  }
+
+    .hero-inner{
+      padding-top: 0;
+      margin-top: -2rem;
+    }
+
+  .separator {
+    top: 10rem;
+  }
+
+  .details-card{
+    padding-top: 20rem;
+  }
+
+  .piece--numbers {
+    width: 14vw;
+    margin-top: -24%;
+  }
+
+  .piece--name {
+    margin-top: -6%;
+    max-width: 16vw;
+  }
+
+  .piece--bday-text {
+    max-width: 26vw;
+  }
+
+  .piece--face {
+    max-width: 22rem;
+  }
+}
+
+}

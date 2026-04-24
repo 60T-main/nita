@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ka">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ანა — 23 წლის დაბადების დღე</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section class="hero">
+            <img
+                class="sticker sticker--flowers"
+                src="flowers.png"
+                alt=""
+                aria-hidden="true"
+            >
+            <img
+                class="sticker sticker--disco"
+                src="disco.png"
+                alt=""
+                aria-hidden="true"
+            >
+            <img
+                class="sticker sticker--kiss"
+                src="kiss.png"
+                alt=""
+                aria-hidden="true"
+            >
+            <img
+                class="sticker sticker--kiss-2"
+                src="kiss.png"
+                alt=""
+                aria-hidden="true"
+            >
+            <img
+                class="sticker sticker--cocktail"
+                src="cocktail.png"
+                alt=""
+                aria-hidden="true"
+            >
+            <img
+                class="sticker sticker--cocktail-2"
+                src="cocktail.png"
+                alt=""
+                aria-hidden="true"
+            >
+            <img
+                class="sticker sticker--cocktail-3"
+                src="cocktail-2.png"
+                alt=""
+                aria-hidden="true"
+            >
+            <img
+                class="sticker sticker--cocktail-4"
+                src="cocktail-2.png"
+                alt=""
+                aria-hidden="true"
+            >
+            <div class="hero-inner">
+                <div class="hero-collage">
+                    <img class="piece piece--face" src="face.png" alt="ანა — 23 წლის დაბადების დღე">
+                    <img
+                        class="piece piece--numbers"
+                        src="numbers.png"
+                        alt=""
+                        aria-hidden="true"
+                    >
+                    <img
+                        class="piece piece--name"
+                        src="name.png"
+                        alt=""
+                        aria-hidden="true"
+                    >
+                    <img
+                        class="piece piece--bday-text"
+                        src="birthday-text.png"
+                        alt=""
+                        aria-hidden="true"
+                    >
+                </div>
+            </div>
+        </section>
+        <section class="details">
+            <div class="separator" aria-hidden="true">
+                <img src="separator.png" alt="">
+            </div>
+            <div class="details-card">
+                <p class="info-date">12 · MAY · 2026</p>
+                <p class="info-time">
+                    <span class="time-char">1</span>
+                    <span class="time-char">9</span>
+                    <span class="time-char time-char--colon">:</span>
+                    <span class="time-char">0</span>
+                    <span class="time-char">0</span>
+                </p>
+                <a
+                    class="info-venue"
+                    href="https://maps.app.goo.gl/BKqLYMsciVyPMo439"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span class="pin-emoji">📍</span>
+                    LoveBar, თბილისი
+                </a>
+                <p class="info-message">
+                    გამიხარდება, თუ ამ განსაკუთრებულ
+                    <br>
+                    დღეს ჩემთან ერთად გაატარებ
+                </p>
+                <p class="info-dresscode">
+                    dress code:
+                    <span id="dresscodeSpan">თავისუფალი</span>
+                </p>
+                <div class="divider"></div>
+                <div class="schedule">
+                    <h2 class="schedule-title">განრიგი</h2>
+                    <div class="schedule-list">
+                        <div
+                            class="schedule-item"
+                            data-emoji="🌸"
+                            data-title="სტუმრების მიღება"
+                            data-info="გამარჯობა! მოდი, დაისვენე და ისიამოვნე მუსიკით, ველოდებით სტუმრებს!"
+                        >
+                            <span class="schedule-tag">19:00</span>
+                            <span class="schedule-event">სტუმრების მიღება</span>
+                        </div>
+                        <div
+                            class="schedule-item"
+                            data-emoji="🍽️"
+                            data-title="ვახშამი"
+                            data-info="სუფრა გაშლილია! უგემრიელესი საჭმლი გელოდება."
+                        >
+                            <span class="schedule-tag">20:00</span>
+                            <span class="schedule-event">ვახშამი</span>
+                        </div>
+                        <div
+                            class="schedule-item"
+                            data-emoji="🎂"
+                            data-title="ტორტი & სიურპრიზი"
+                            data-info="გემრიელი ტორტი და განსაკუთრებული სიურპრიზები ანასთვის! 🎉"
+                        >
+                            <span class="schedule-tag">21:00</span>
+                            <span class="schedule-event">ტორტი &amp; სიურპრიზი 🎂</span>
+                        </div>
+                        <div
+                            class="schedule-item"
+                            data-emoji="💃"
+                            data-title="ცეკვა & გართობა"
+                            data-info="ახლა კი ფეხები ამოძრავე! მუსიკა ჩაირთვება და ღამე გაგრძელდება!"
+                        >
+                            <span class="schedule-tag">22:00</span>
+                            <span class="schedule-event">ცეკვა &amp; გართობა</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <span>Made with ♥ by Weddsite</span>
+        </footer>
+        <!-- Schedule popup -->
+        <div
+            class="sched-overlay"
+            id="schedOverlay"
+            role="dialog"
+            aria-modal="true"
+        >
+            <div class="sched-popup" id="schedPopup">
+                <div class="sched-popup__emoji" id="schedEmoji"></div>
+                <h3 class="sched-popup__title" id="schedTitle"></h3>
+                <p class="sched-popup__info" id="schedInfo"></p>
+                <button class="sched-popup__close" id="schedClose" aria-label="დახურვა">✕</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
