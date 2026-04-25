@@ -15,6 +15,47 @@ document.querySelectorAll('.time-char').forEach((ch, i) => {
   setTimeout(() => ch.classList.add('idle'), 600 + i * 120);
 });
 
+// ── Background music toggle ────────────────────────────────────────────────
+
+const bgMusic = document.getElementById('bgMusic');
+const musicToggle = document.getElementById('musicToggle');
+
+function setMusicButtonState(isMuted) {
+  musicToggle.classList.toggle('is-muted', isMuted);
+  musicToggle.setAttribute('aria-label', isMuted ? 'მუსიკის ჩართვა' : 'მუსიკის გამორთვა');
+}
+
+function tryPlayMusic() {
+  if (!bgMusic) return;
+  const playPromise = bgMusic.play();
+  if (playPromise && typeof playPromise.catch === 'function') {
+    playPromise.catch(() => {
+      bgMusic.muted = true;
+      setMusicButtonState(true);
+    });
+  }
+}
+
+if (bgMusic && musicToggle) {
+  bgMusic.volume = 0.35;
+  bgMusic.muted = false;
+  setMusicButtonState(false);
+
+  window.addEventListener('load', tryPlayMusic, { once: true });
+
+  musicToggle.addEventListener('click', () => {
+    if (bgMusic.paused || bgMusic.muted) {
+      bgMusic.muted = false;
+      setMusicButtonState(false);
+      tryPlayMusic();
+      return;
+    }
+
+    bgMusic.muted = true;
+    setMusicButtonState(true);
+  });
+}
+
 // ── Schedule item popups ──────────────────────────────────────────────────
 
 const colors = ['pink', 'teal', 'purple', 'peach'];
