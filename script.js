@@ -20,39 +20,42 @@ document.querySelectorAll('.time-char').forEach((ch, i) => {
 const bgMusic = document.getElementById('bgMusic');
 const musicToggle = document.getElementById('musicToggle');
 
-function setMusicButtonState(isMuted) {
-  musicToggle.classList.toggle('is-muted', isMuted);
-  musicToggle.setAttribute('aria-label', isMuted ? 'მუსიკის ჩართვა' : 'მუსიკის გამორთვა');
+function setMusicButtonState(isPlaying) {
+  musicToggle.classList.toggle('is-muted', !isPlaying);
+  musicToggle.classList.toggle('playing', isPlaying);
+  musicToggle.setAttribute('aria-label', isPlaying ? 'მუსიკის გამორთვა' : 'მუსიკის ჩართვა');
 }
 
-function tryPlayMusic() {
+function tryPlayMusic(markPlayingOnSuccess) {
   if (!bgMusic) return;
+
   const playPromise = bgMusic.play();
+
   if (playPromise && typeof playPromise.catch === 'function') {
-    playPromise.catch(() => {
-      bgMusic.muted = true;
-      setMusicButtonState(true);
+    playPromise.then(() => {
+      if (markPlayingOnSuccess) setMusicButtonState(true);
+    }).catch(() => {
+      if (markPlayingOnSuccess) setMusicButtonState(false);
     });
   }
 }
 
 if (bgMusic && musicToggle) {
   bgMusic.volume = 0.35;
-  bgMusic.muted = false;
-  setMusicButtonState(false);
+  setMusicButtonState(true);
 
-  window.addEventListener('load', tryPlayMusic, { once: true });
+  window.addEventListener('load', () => tryPlayMusic(false), { once: true });
+
+  bgMusic.addEventListener('play', () => setMusicButtonState(true));
+  bgMusic.addEventListener('pause', () => setMusicButtonState(false));
 
   musicToggle.addEventListener('click', () => {
-    if (bgMusic.paused || bgMusic.muted) {
-      bgMusic.muted = false;
-      setMusicButtonState(false);
-      tryPlayMusic();
+    if (musicToggle.classList.contains('playing')) {
+      bgMusic.pause();
       return;
     }
 
-    bgMusic.muted = true;
-    setMusicButtonState(true);
+    tryPlayMusic(true);
   });
 }
 
