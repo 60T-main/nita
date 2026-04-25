@@ -49,14 +49,44 @@ if (bgMusic && musicToggle) {
   bgMusic.addEventListener('play', () => setMusicButtonState(true));
   bgMusic.addEventListener('pause', () => setMusicButtonState(false));
 
-  musicToggle.addEventListener('click', () => {
+  // Mobile browsers (especially iOS Safari) often require a direct touch gesture
+  // before allowing audible media. We "unlock" playback on the first gesture.
+  let audioUnlocked = false;
+
+  function unlockAudioFromGesture() {
+    if (audioUnlocked) return;
+    audioUnlocked = true;
+
+    const playPromise = bgMusic.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.then(() => {
+        setMusicButtonState(true);
+      }).catch(() => {
+        setMusicButtonState(false);
+      });
+    }
+  }
+
+  document.addEventListener('pointerdown', unlockAudioFromGesture, { once: true });
+  document.addEventListener('touchstart', unlockAudioFromGesture, { once: true, passive: true });
+
+  let lastToggleAt = 0;
+
+  function handleMusicToggle() {
+    const now = Date.now();
+    if (now - lastToggleAt < 450) return;
+    lastToggleAt = now;
+
     if (musicToggle.classList.contains('playing')) {
       bgMusic.pause();
       return;
     }
 
     tryPlayMusic(true);
-  });
+  }
+
+  musicToggle.addEventListener('click', handleMusicToggle);
+  musicToggle.addEventListener('touchstart', handleMusicToggle, { passive: true });
 }
 
 // ── Schedule item popups ──────────────────────────────────────────────────
